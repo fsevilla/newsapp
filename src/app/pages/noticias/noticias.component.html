@@ -1,0 +1,5 @@
+<button (click)="cargarNoticias()">Traer noticias</button>
+
+<ul>
+    <li *ngFor="let noticia of noticias">{{noticia.title}}</li>
+</ul>

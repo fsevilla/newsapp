@@ -1,0 +1,18 @@
+/app/ <- Ruta base de ng generate
+    pages/
+        noticias
+            noticias.component 
+        encabezados
+
+    global/
+        components/
+        services/
+            noticia.service
+        directives/
+        pipes/
+        guards/
+        interfaces/
+
+    layout/
+        header
+        footer

@@ -1,9 +1,2 @@
-<h1>Bienvenido {{nombre}}</h1>
-
-<input (keyup)="triggerSearch($event)" [(ngModel)]="buscar" type="text" placeholder="Buscar...">
-<input [(ngModel)]="seleccionado" type="checkbox">
-<button (click)="search($event)">Buscar</button>
-<br><br>
-<div *ngFor="let movie of filteredMovies">
-  {{movie.title}} (duration: {{movie.duration}} minutes)
-</div>
+<h1 class="heading">Bienvenido {{nombre}}</h1>
+<app-noticias></app-noticias>
