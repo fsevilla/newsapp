@@ -1,29 +1,36 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoticiaService {
 
-  noticias = [
-    {
-      title: 'Noticia 1',
-      url: 'http://google.com'
-    },
-    {
-      title: 'Noticia 2',
-      url: 'http://google.com'
-    }
-  ]
+  constructor(private httpClient:HttpClient) { }
 
-  constructor() { }
+  listar(search: string, source: string): Promise<any> {
+    const url = `https://newsapi.org/v2/everything?q=${search}&sortBy=publishedAt&sources=${source}&apiKey=${environment.apiKey}`;
+    // const url = 'https://newsapi.org/v2/everything?q=' + search + '&sortBy=publishedAt&sources=' + source + '&apiKey=59a12e101caf4769b2cf2cb82b677ef3';
 
-  getNews(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.noticias);
-      }, 2000);
-    });
+    return this.httpClient.get(url).toPromise();
   }
 
 }
+
+// url.com?param=123&param2=valor2&param3=valor3&param4=valor
+
+// Noticia
+//   listar
+//   obtener por ID 
+//   crear 
+//   editar
+//   eliminar 
+
+// Fuente
+//  listar
+//  obtener por ID 
+//  crear 
+//  editar 
+//  eliminar 

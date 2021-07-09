@@ -1,4 +1,10 @@
-<button (click)="cargarNoticias()">Traer noticias</button>
+<input type="text" placeholder="Buscar" [(ngModel)]="buscar" />
+<button (click)="cargarNoticias()" [disabled]="!buscar">Buscar</button>
+
+<select [(ngModel)]="fuenteSeleccionada">
+    <option>Selecciona la fuente</option>
+    <option value="{{fuente.id}}" *ngFor="let fuente of fuentes">{{fuente.name}}</option>
+</select>
 
 <ul>
     <li *ngFor="let noticia of noticias">{{noticia.title}}</li>
