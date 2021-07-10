@@ -1,3 +1,9 @@
-<h2>{{noticia.title}}</h2>
+<div *ngIf="noticia">
 
-<p>{{noticia.author}}</p>
+  <h2>{{noticia.title}}</h2>
+
+  <p>{{noticia.author}}</p>
+
+</div>
+
+<div *ngIf="cargando">loading....</div>

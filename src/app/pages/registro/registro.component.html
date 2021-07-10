@@ -1,0 +1,34 @@
+<h2>Nuevo Usuario</h2>
+<form [formGroup]="form" (submit)="guardarDatos()">
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" formControlName="nombre">
+  </div>
+  <div>
+    <label for="username">Nombre usuario: </label>
+    <input type="text" name="username" formControlName="username">
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" name="email" formControlName="email">
+  </div>
+  <div>
+    <label for="gender">Genero</label>
+    <select name="gender" formControlName="gender">
+      <option value="1">Masculino</option>
+      <option value="2">Femenino</option>
+      <option value="3">Deseo no especificar</option>
+    </select>
+  </div>
+  <div>
+    <label for="password">Contraseña: </label>
+    <input type="password" name="password" formControlName="password">
+  </div>
+  <div>
+    <label for="confirm">Confirmar Contraseña: </label>
+    <input type="password" name="confirm" formControlName="confirmPassword">
+  </div>
+  <div>
+    <button [disabled]="form.invalid">Guardar</button>
+  </div>
+</form>

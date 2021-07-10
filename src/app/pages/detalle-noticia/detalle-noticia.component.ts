@@ -11,7 +11,8 @@ import { StorageService } from 'src/app/global/services/storage.service';
 export class DetalleNoticiaComponent implements OnInit {
 
   title: string = '';
-  noticia: any = { title: ''};
+  noticia: any;
+  cargando: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private storageService: StorageService) {
     this.activatedRoute.params.subscribe(p => {
@@ -20,9 +21,11 @@ export class DetalleNoticiaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cargando = true;
     setTimeout(() => {
       this.noticia = this.storageService.get();
-    }, 1000);
+      this.cargando = false;
+    }, 2000);
   }
 
 

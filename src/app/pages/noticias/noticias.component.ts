@@ -17,7 +17,7 @@ export class NoticiasComponent implements OnInit, AfterViewInit {
   noticias: Array<Noticia> = [];
   fuentes: Array<any> = [];
 
-  constructor(private noticiaService: NoticiaService, private fuenteService: FuenteService, private storageService: StorageService) {}
+    constructor(private noticiaService: NoticiaService, private fuenteService: FuenteService, private storageService: StorageService) {}
 
   ngOnInit(): void {
     console.log('Ya se inicializo el componente');
