@@ -3,6 +3,10 @@
         noticias
             noticias.component 
         encabezados
+        titulares
+            component
+            module
+            
 
     global/
         components/
