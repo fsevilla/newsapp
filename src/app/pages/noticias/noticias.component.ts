@@ -30,7 +30,10 @@ export class NoticiasComponent implements OnInit, AfterViewInit {
   cargarNoticias() {
     if(!this.buscar) return;
     console.log('Voy a traer las noticias del servicio...', this.noticiaService);
-    this.noticiaService.listar(this.buscar, this.fuenteSeleccionada).then(response => {
+    this.noticiaService.listar({
+      search: this.buscar,
+      source: this.fuenteSeleccionada
+    }).then(response => {
       this.noticias = response.articles;
     }).catch(e => {});
   }

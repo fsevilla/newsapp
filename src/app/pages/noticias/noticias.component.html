@@ -1,9 +1,12 @@
-<input type="text" placeholder="Buscar" [(ngModel)]="buscar" />
-<button (click)="cargarNoticias()" [disabled]="!buscar">Buscar</button>
+<form (submit)="cargarNoticias()">
+    <input type="text" placeholder="Buscar" name="search" [(ngModel)]="buscar" />
+    <button [disabled]="!buscar">Buscar</button>
+</form>
 
 <select [(ngModel)]="fuenteSeleccionada">
     <option>Selecciona la fuente</option>
-    <option value="{{fuente.id}}" *ngFor="let fuente of fuentes">{{fuente.name}}</option>
+    <option value="{{item.id}}" *ngFor="let item of fuentes">{{item.name}}</option>
+    <option>
 </select>
 
 <ul>

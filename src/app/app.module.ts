@@ -6,11 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
+import { TitularesComponent } from './pages/titulares/titulares.component';
+import { Error404Component } from './pages/error404/error404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    TitularesComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,

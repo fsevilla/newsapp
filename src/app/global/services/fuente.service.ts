@@ -2,16 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from './../../../environments/environment';
+import { CrudService } from './crud.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FuenteService {
+export class FuenteService extends CrudService {
 
-  constructor(private httpClient: HttpClient) { }
+  endpoint: string = 'top-headlines/sources';
 
-  listar(): Promise<any> {
-    const url = `https://newsapi.org/v2/top-headlines/sources?apiKey=${environment.apiKey}`;
-    return this.httpClient.get(url).toPromise();
-  }
+  // constructor(httpClient: HttpClient) {
+  //   super(httpClient);
+  // }
 }
+
+
+// ${environment.apiUrl}${path}

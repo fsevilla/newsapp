@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { CrudService } from './crud.service';
 
-import { environment } from './../../../environments/environment';
+interface Params {
+  search: string;
+  source: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
-export class NoticiaService {
+export class NoticiaService extends CrudService {
 
-  constructor(private httpClient:HttpClient) { }
+  endpoint: string = 'everything';
 
-  listar(search: string, source: string): Promise<any> {
-    const url = `https://newsapi.org/v2/everything?q=${search}&sortBy=publishedAt&sources=${source}&apiKey=${environment.apiKey}`;
-    // const url = 'https://newsapi.org/v2/everything?q=' + search + '&sortBy=publishedAt&sources=' + source + '&apiKey=59a12e101caf4769b2cf2cb82b677ef3';
-
-    return this.httpClient.get(url).toPromise();
+  listar(params: Params): Promise<any> {
+    const query = `q=${params.search}&sortBy=publishedAt&sources=${params.source}`;
+    return super.listar(query);
   }
 
 }
@@ -34,3 +35,11 @@ export class NoticiaService {
 //  crear 
 //  editar 
 //  eliminar 
+
+// Titulares
+// listar
+
+// news.service.ts 
+//   getNews()
+//   getSources()
+//   getHeadlines()
