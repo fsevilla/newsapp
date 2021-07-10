@@ -10,5 +10,9 @@
 </select>
 
 <ul>
-    <li *ngFor="let noticia of noticias">{{noticia.title}}</li>
+    <li *ngFor="let noticia of noticias">
+        <a (click)="guardarNoticia(noticia)" routerLink="{{noticia.title}}">{{noticia.title}}</a>
+    </li>
 </ul>
+
+<!-- localhost:4200/noticias/12312331223 -->

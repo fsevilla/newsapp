@@ -3,6 +3,7 @@ import { Component, OnInit, OnChanges, OnDestroy, AfterViewInit } from '@angular
 import { Noticia } from './../../global/interfaces/noticia';
 import { NoticiaService } from './../../global/services/noticia.service';
 import { FuenteService } from './../../global/services/fuente.service';
+import { StorageService } from 'src/app/global/services/storage.service';
 
 @Component({
   selector: 'app-noticias',
@@ -16,7 +17,7 @@ export class NoticiasComponent implements OnInit, AfterViewInit {
   noticias: Array<Noticia> = [];
   fuentes: Array<any> = [];
 
-  constructor(private noticiaService: NoticiaService, private fuenteService: FuenteService) {}
+  constructor(private noticiaService: NoticiaService, private fuenteService: FuenteService, private storageService: StorageService) {}
 
   ngOnInit(): void {
     console.log('Ya se inicializo el componente');
@@ -42,6 +43,10 @@ export class NoticiasComponent implements OnInit, AfterViewInit {
     this.fuenteService.listar().then(response => {
       this.fuentes = response.sources;
     }).catch(e => {});
+  }
+
+  guardarNoticia(noticia: any) {
+    this.storageService.save(noticia);
   }
 
 }
