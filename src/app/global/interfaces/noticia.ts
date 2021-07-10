@@ -4,3 +4,9 @@ export interface Noticia {
   description: string;
   url: string;
 }
+
+
+export interface RespuestaNoticia {
+  author: any;
+  articles: Noticia[]
+}

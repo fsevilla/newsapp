@@ -8,6 +8,7 @@
         components/
         services/
             noticia.service
+            fuentes.service
         directives/
         pipes/
         guards/
@@ -16,3 +17,4 @@
     layout/
         header
         footer
+

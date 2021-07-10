@@ -1,29 +1,45 @@
 import { Injectable } from '@angular/core';
+import { CrudService } from './crud.service';
+
+interface Params {
+  search: string;
+  source: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
-export class NoticiaService {
+export class NoticiaService extends CrudService {
 
-  noticias = [
-    {
-      title: 'Noticia 1',
-      url: 'http://google.com'
-    },
-    {
-      title: 'Noticia 2',
-      url: 'http://google.com'
-    }
-  ]
+  endpoint: string = 'everything';
 
-  constructor() { }
-
-  getNews(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.noticias);
-      }, 2000);
-    });
+  listar(params: Params): Promise<any> {
+    const query = `q=${params.search}&sortBy=publishedAt&sources=${params.source}`;
+    return super.listar(query);
   }
 
 }
+
+// url.com?param=123&param2=valor2&param3=valor3&param4=valor
+
+// Noticia
+//   listar
+//   obtener por ID 
+//   crear 
+//   editar
+//   eliminar 
+
+// Fuente
+//  listar
+//  obtener por ID 
+//  crear 
+//  editar 
+//  eliminar 
+
+// Titulares
+// listar
+
+// news.service.ts 
+//   getNews()
+//   getSources()
+//   getHeadlines()
